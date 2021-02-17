@@ -49,6 +49,9 @@
     if (arg2_expr == NULL) {                                                   \
         arg2_expr = _sym_build_integer(arg2, _sym_bits_helper(arg1_expr));     \
     }                                                                          \
+    if (arg1_expr->isConstant() && arg2_expr->isConstant()) {                  \
+        printf("Both symbolic operands are concrete\n");                       \
+    }                                                                          \
                                                                                \
     assert(_sym_bits_helper(arg1_expr) == 32 ||                                \
            _sym_bits_helper(arg1_expr) == 64);                                 \
